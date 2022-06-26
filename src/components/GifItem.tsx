@@ -8,7 +8,6 @@ const GifItem = ({gif}: Props) => {
     return (
         <div className='card'>
             <img src={gif.url} alt={gif.title} />
-            {/* <p>{gif.title}</p> */}
         </div>
     )
 }

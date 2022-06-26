@@ -10,28 +10,24 @@ interface Props {
 
 const GifGrid = ({ category }: Props) => {
     const [offsetValue, setOffsetValue] = useState<number>(0)
-    const {gifs, isLoading, getGifs} = useFetchGifs(category)
-    const {isScrolling, setIsScrolling} = useInfiniteScroll()
+    const { gifs, isLoading, getGifs } = useFetchGifs(category)
+    const { isScrolling, setIsScrolling } = useInfiniteScroll()
 
-    const handleInfiniteScroll = () => {
-        console.log('handle scroll',gifs)
+    const loadMoreGifs = () => {
+        const newOffset = offsetValue + 11
+        setOffsetValue(newOffset)
+        getGifs(category, newOffset, gifs)
+        setIsScrolling(false)
     }
 
-    useEffect(()=>{
-        handleInfiniteScroll()
-        console.log(gifs)
-        if(isScrolling && !isLoading){
-            console.log('loading more...')
-            const newOffset = offsetValue + 11
-            setOffsetValue(newOffset)
-            getGifs(category, newOffset, gifs)
-            setIsScrolling(false)
-        }
-    },[isScrolling, isLoading])
+    useEffect(() => {
+        if (isScrolling && !isLoading) loadMoreGifs()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isScrolling, isLoading])
 
     return (
-        <>
-            <h2>{category}</h2>
+        <main>
+            <h2 className='gifgrid-title'>{category}</h2>
             <div className='card-grid'>
                 {
                     gifs.map(gif => (
@@ -42,7 +38,7 @@ const GifGrid = ({ category }: Props) => {
             {
                 isLoading && (<Loader />)
             }
-        </>
+        </main>
     )
 }
 

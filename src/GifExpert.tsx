@@ -1,14 +1,12 @@
 import { useState } from 'react'
-import GifGrid from './components/GifGrid'
-import { AddCategory } from './components'
+import { AddCategory, GifGrid } from './components'
 
 
 const GifExpert = () => {
-    const [categories, setCategories] = useState<Array<string>>([])
+    const [category, setCategory] = useState<string>('')
 
     const handleAdd = (newItem: string) => {
-        if (categories.includes(newItem.toLowerCase())) return;
-        setCategories(catg => [newItem.toLowerCase(), ...catg])
+        setCategory(newItem)
     }
 
     return (
@@ -17,13 +15,7 @@ const GifExpert = () => {
                 <h1 aria-label='title' className='title'>Gif Finder</h1>
                 <AddCategory onAddCategory={handleAdd} />
             </header>
-            <ol>
-                {
-                    categories.map(category => (
-                        <GifGrid key={category} category={category} />
-                    ))
-                }
-            </ol>
+            <GifGrid category={category} />
         </>
     )
 }
