@@ -14,5 +14,5 @@ Para obtener los Gifs se utilizó la api de [GIPHY](https://developers.giphy.com
 - Implementacion de Typescript
 - Infinite Scrolling 
 
-## Live Demo
-[Gif Finder](https://giffinder-nc.netlify.app/).
+# Live Demo
+[Gif Finder](https://giffinder-nc.netlify.app/)
