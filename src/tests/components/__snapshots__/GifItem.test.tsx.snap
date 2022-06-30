@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test for GifItem component should match snaptshot 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <img
+      alt="Saitama"
+      src="http://one-punch.org/saitama.jpg"
+    />
+  </div>
+</div>
+`;

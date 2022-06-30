@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for GifExpert Component should match snapshot 1`] = `
+<div>
+  <header
+    class="header-container"
+  >
+    <h1
+      aria-label="title"
+      class="title"
+    >
+      Gif Finder
+    </h1>
+    <form
+      aria-label="form"
+    >
+      <input
+        aria-label="search-input"
+        placeholder="Search Gif"
+        role="searchbox"
+        type="text"
+        value=""
+      />
+      <button
+        class="submit-btn"
+        type="submit"
+      >
+        <img
+          alt="search icon"
+          src="search.svg"
+        />
+      </button>
+    </form>
+  </header>
+  <main>
+    <h2
+      class="gifgrid-title"
+    />
+    <div
+      class="card-grid"
+    />
+    <div
+      class="loader-container"
+    >
+      <div
+        class="loader"
+        data-testid="loader-spin"
+      />
+    </div>
+  </main>
+</div>
+`;
