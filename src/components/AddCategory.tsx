@@ -21,7 +21,7 @@ const AddCategory = ({ onAddCategory }: Props) => {
     }
 
     return (
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} aria-label='form'>
                 <input
                     role={'searchbox'}
                     aria-label="search-input"
