@@ -10,13 +10,13 @@ interface Props {
 
 const GifGrid = ({ category }: Props) => {
     const [offsetValue, setOffsetValue] = useState<number>(0)
-    const { gifs, isLoading, getGifs } = useFetchGifs(category)
+    const { gifs, isLoading, getMoreGifs } = useFetchGifs(category)
     const { isScrolling, setIsScrolling } = useInfiniteScroll()
 
     const loadMoreGifs = () => {
         const newOffset = offsetValue + 11
         setOffsetValue(newOffset)
-        getGifs(category, newOffset, gifs)
+        getMoreGifs(category, newOffset, gifs)
         setIsScrolling(false)
     }
 

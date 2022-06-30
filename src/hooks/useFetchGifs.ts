@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { getGifsFromApi } from "../helpers/getGifsFromApi"
 import { GifData } from "../types"
 
-export const useFetchGifs = (initalValue: string) => {
+export const useFetchGifs = (initalState: string) => {
     const [gifs, setGifs] = useState<Array<GifData>>([])
     const [isLoading, setIsLoading] = useState<boolean>(true)
     
@@ -15,14 +15,18 @@ export const useFetchGifs = (initalValue: string) => {
             setIsLoading(false)
     }
 
+    const getMoreGifs = (categ: string, offset: number, preserveData: GifData[] = []) => {
+        getGifs(categ, offset, preserveData)
+    }
+
     useEffect(()=>{
-        getGifs(initalValue,0)
-    },[initalValue])
+       getGifs(initalState, 0)
+    },[initalState])
 
     return {
         gifs,
         isLoading,
-        getGifs
+        getMoreGifs
     }
 }
 
